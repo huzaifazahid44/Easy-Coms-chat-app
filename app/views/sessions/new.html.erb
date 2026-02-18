@@ -1,1 +1,35 @@
-<h1>Login page</h1>
+<h2 class="ui center aligned icon header">
+  <i class="circular blue sign in icon"></i>
+  Log In to Easy Coms
+</h2>
+
+<div class="ui middle aligned center aligned grid" style="margin-top: 50px;">
+  <div class="column" style="max-width: 450px;">
+    <div class="ui fluid raised card">
+      <div class="content">
+        
+        <%= form_with scope: :session, url: login_path, data: { turbo: false }, class: "ui large form" do |form| %>
+          
+          <div class="field">
+            <%= form.label :Username, "username" %>
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <%= form.text_field :username, placeholder: "Enter your username" %>
+            </div>
+          </div>
+          
+          <div class="field">
+            <%= form.label :password, "Password" %>
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <%= form.password_field :password, placeholder: "Enter your password" %>
+            </div>
+          </div>
+          
+          <%= form.submit "Log In", class: "ui fluid large blue submit button" %>
+          
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
