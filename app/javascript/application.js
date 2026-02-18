@@ -3,6 +3,13 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "channels"
 
+const scrollToBottom = function() {
+  const chatbox = document.querySelector('.chatbox');
+  if (chatbox) {
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+};
+
 // Initialize Semantic UI components
 document.addEventListener('turbo:load', function() {
   if (typeof $ !== 'undefined') {
@@ -11,12 +18,7 @@ document.addEventListener('turbo:load', function() {
       $(this).closest('.message').transition('fade');
     });
   }
-  
-  // Clear form after successful message submission
-  const form = document.querySelector('.ui.reply.form');
-  if (form) {
-    form.addEventListener('ajax:success', function() {
-      form.reset();
-    });
-  }
+  scrollToBottom();
 });
+
+
