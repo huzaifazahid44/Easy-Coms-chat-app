@@ -11,3 +11,10 @@
   padding-left: 20px !important;
   padding-right: 20px !important;
 }
+
+.ui.message.transition.visible {
+  margin-top: 70px !important;
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+  border-radius: 0 !important;
+}
