@@ -12,5 +12,11 @@ consumer.subscriptions.create("ChatroomChannel", {
   received(data) {
     const messageStream = document.getElementById('message-stream');
     messageStream?.insertAdjacentHTML('beforeend', data.message);
+    
+    // Scroll to bottom
+    const chatbox = document.querySelector('.chatbox');
+    if (chatbox) {
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
   }
 });
