@@ -1,33 +1,17 @@
 <div class="ui top fixed menu">
-          <div class="item">
-          <%= image_tag("chats.png") %>
-        </div>        <div class="ui pointing dropdown link item">
-          <span class="text">Chatroom</span>
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <div class="item">Option 1</div>
-          </div>
-        </div><a class="item">Messages</a>
-        <a class="item">Account</a>
-   <a class="item">Sign-in</a>
+  <div class="item">
+    <%= link_to image_tag("chats.png", style: "width: 30px; height: 30px;"), root_path %>
+  </div>
+  <div class="ui pointing dropdown link item">
+    <span class="text">Chatroom</span>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item">Option 1</div>
     </div>
-    
-
-    <div style="margin-top: 60px; margin-bottom: 60px;">
-      <%= yield %>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
-    <%= javascript_importmap_tags %>
-    
-    <script>
-      $(document).ready(function() {
-        $('.ui.dropdown').dropdown();
-      });
-      
-      document.addEventListener('turbo:load', function() {
-        $('.ui.dropdown').dropdown();
-      });
-    </script>
- 
+  </div>
+    <% if logged_in? %>
+      <%= link_to "Log Out", logout_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to log out?" }, class: "item" %>
+    <% else %>
+      <%= link_to "Log In", login_path, class: "item" %>
+    <% end %>
+</div>
