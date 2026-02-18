@@ -3,6 +3,10 @@
   overflow-y: auto;
 }
 
+.ui.center.aligned.icon.header {
+  margin-top: 100px !important;
+}
+
 .ui.grid {
   padding-left: 20px !important;
   padding-right: 20px !important;
