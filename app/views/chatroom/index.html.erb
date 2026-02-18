@@ -6,14 +6,14 @@
 <div class="ui two column grid">
   <div class="twelve wide column">
     <div class="ui fluid raised card chatbox">
-      <div class="content">
+      <div class="content" id="chat-content">
         <div class="ui feed" id="message-stream">
           <h4 class="ui header">Message Stream</h4>
             <%= render @messages %>
         </div>
       </div>
       <div class="extra content">
-       <%= form_with model: @message, url: messages_path, class: "ui reply form", local: false do |f| %>
+       <%= form_with model: @message, url: messages_path, class: "ui reply form", local: false, data: { controller: "form", action: "turbo:submit-end->form#clear" } do |f| %>
           <div class="field">
             <div class="ui action input">
               <%= f.text_field :body, placeholder: "Enter a message...", autocomplete: "off" %> 
